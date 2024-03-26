@@ -41,5 +41,32 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.left-align-container {
+  text-align: left;
+  padding-left: 100px;
+  font-family:'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.horizontal-div div {
+  display: inline-block;
+
+}
+
+.spacer {
+  flex-grow: 1; /* This will make the spacer div grow and fill the available space */
+}
+
+.rounded-rectangle {
+  background-color: rgba(52,210,162 ,0.58);/*#34D2A2;*/ /* Background color of the rounded rectangle */
+  border: 6px solid #34D2A2; /* You can adjust the border properties as needed */
+  padding: 7px; /* Padding around the text */
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 50px; /* Border radius to create rounded corners */
+  width: fit-content; /* Adjust width to fit content */
+  font-size: 18; /* You can adjust the font size */
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 
