@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .App {
   text-align: center;
 }
@@ -49,7 +54,6 @@
 
 .horizontal-div div {
   display: inline-block;
-
 }
 
 .spacer {
@@ -64,9 +68,28 @@
   padding-right: 30px;
   border-radius: 50px; /* Border radius to create rounded corners */
   width: fit-content; /* Adjust width to fit content */
+  height: fit-content; /* Adjust width to fit content */
   font-size: 18; /* You can adjust the font size */
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.rounded-box {
+  margin-top: 80px;
+  background-color: rgba(255,255,255 ,1);/*#34D2A2;*/ /* Background color of the rounded rectangle */
+  padding: 7px; /* Padding around the text */
+  align-items: start;
+  padding-top: 20px;
+  padding-left:30px;
+  padding-right: 20px;
+  border-radius: 20px; /* Border radius to create rounded corners */
+  width: 80%; /* Adjust width to fit content */
+  height: fit-content; /* Adjust width to fit content */
+  font-size: 18; /* You can adjust the font size */
+  font-family:Arial, Helvetica, sans-serif;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+
 
 
 

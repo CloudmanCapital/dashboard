@@ -1,31 +1,43 @@
 import logo from './assets/Cloudman Capital Logo Transparent.png';
 import './App.css';
 
+
 function App() {
   return (
     <div className="App">
+      <html data-theme="cupcake"></html>
       <header className="App-header">
         <img src={logo} alt="logo" 
-        style={{ width: '12%', height: '40%', padding: '60px'}}/>
+        style={{padding: '60px'}}/>
         <button class="sign-out-button">Sign Out</button>
       </header>
-      <div> {/* Main body */}
-      <div class="horizontal-div">
-        <div class="left-align-container"> {/*Left side (graph)*/}
-            <div class="horizontal-div">
-              <div>
-                <h1 style={{ fontSize: "2rem" }}>Aditya Behera</h1>
-              </div>
-              <div class="rounded-rectangle">
+      <div class="flex flex-row pt-6">
+        <div class="flex-none basis-1/4">
+          <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>Aditya Behera</h1>
+        </div>
+        <div class="flex-none basis-1/4"></div>
+        <div class="flex-none basis-1/4">
+            <div class="rounded-rectangle">
                 +$3.08 (+48.2%) today
-              </div>
             </div>
         </div>
-        </div> {/*Right side (account info) */}
-        <div> 
+        <div class="flex-none basis-1/4">
+            
+            <ul class="menu bg-base-200 w-56 rounded-box">
+              <h6 style={{fontSize: "1.5rem", fontWeight: "600", paddingTop: "25px"}}>Your Account</h6>
+              <h6 style={{fontSize: "0.8rem", fontWeight: "600", paddingTop: "30px"}}>Amount Invested</h6>
+              <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px"}}>$5.00</h6>
+
+              <h6 style={{fontSize: "0.8rem", fontWeight: "600", paddingTop: "40px"}}>Earnings</h6>
+              <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px"}}>$3.03</h6>
+
+              <h6 style={{fontSize: "0.8rem", fontWeight: "600", paddingTop: "40px"}}>Managing Fee</h6>
+              <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "60px"}}>$0.21</h6>
+            </ul>
         </div>
       </div>
     </div>
+    
   );
 }
 
