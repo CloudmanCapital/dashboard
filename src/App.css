@@ -93,3 +93,9 @@
 
 
 
+
+.flex-none {
+    text-align: left;
+    line-height: 1.3;
+    padding-left: 40px; /* Padding around the text */
+}

@@ -12,10 +12,10 @@ function App() {
         <button class="sign-out-button">Sign Out</button>
       </header>
       <div class="flex flex-row pt-6">
-        <div class="flex-none basis-1/4">
-          <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>Aditya Behera</h1>
+        <div class="flex-none basis-2/4 pt-0">
+          <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>Aditya Behera </h1>
+          <h6 style={{fontSize: "3rem", fontWeight: "400"}}>$8.20</h6>
         </div>
-        <div class="flex-none basis-1/4"></div>
         <div class="flex-none basis-1/4">
             <div class="rounded-rectangle">
                 +$3.08 (+48.2%) today
