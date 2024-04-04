@@ -1,27 +1,76 @@
 import logo from './assets/Cloudman Capital Logo Transparent.png';
 import './App.css';
+import { Button, View, Text } from 'react-native';
+import { ChartContainer } from '@mui/x-charts';
+import { LinePlot, LineChart, MarkPlot } from '@mui/x-charts/LineChart';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-function App() {
+function MainScreen({ navigation }) {
   return (
     <div className="App">
       <html data-theme="cupcake"></html>
       <header className="App-header">
         <img src={logo} alt="logo" 
         style={{padding: '60px'}}/>
-        <button class="sign-out-button">Sign Out</button>
+        <button class="sign-out-button" onClick={() => navigation.navigate('SignIn')}>Sign Out
+        
+        </button>
       </header>
-      <div class="flex flex-row pt-6">
-        <div class="flex-none basis-2/4 pt-0">
-          <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>Aditya Behera </h1>
-          <h6 style={{fontSize: "3rem", fontWeight: "400"}}>$8.20</h6>
-        </div>
-        <div class="flex-none basis-1/4">
-            <div class="rounded-rectangle">
-                +$3.08 (+48.2%) today
+      <div class="flex flex-row">
+        <div class="flex-none basis-2/3 pt-0">
+           <div class="flex flex-row pt-3">
+            <div class="flex-none basis-1/2">
+              <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>Aditya Behera </h1>
+              <h6 style={{fontSize: "3rem", fontWeight: "400"}}>$8.20</h6>
+            </div>
+              
+              
+            <div class="flex-none basis-1/2">
+              <div class="rounded-rectangle">
+                  +$3.08 (+48.2%) today
+              </div>
             </div>
         </div>
-        <div class="flex-none basis-1/4">
+
+        <LineChart
+      width={900}
+      height={300}
+      leftAxis={null}
+      bottomAxis={null}
+      series={[{ type: 'line', curve: 'linear', data: [5, 7.10, 5.15, 7.92, 3.0, 8.08, 8.15, 6, 9, 10, 8.2] }]}
+      xAxis={[{ scaleType: 'point', data: [
+        '3/1',
+        '3/2',
+        '3/3',
+        '3/4',
+        '3/5',
+        '3/6',
+        '3/7',
+        '3,8',
+        '3/9',
+        '3/10',
+        '3/11'
+      ] }]}
+      sx={{
+        '.MuiLineElement-root': {
+          stroke: '#35D2A2',
+          strokeWidth: 5,
+        },
+        '.MuiMarkElement-root': {
+          stroke: '#35D2A2',
+          scale: '0.5',
+          fill: '#35D2A2',
+          strokeWidth: 2,
+        },
+      }}
+
+    
+/>
+        </div>
+        
+        <div class="flex-none basis-1/3">
             
             <ul class="menu bg-base-200 w-56 rounded-box">
               <h6 style={{fontSize: "1.5rem", fontWeight: "600", paddingTop: "25px"}}>Your Account</h6>
@@ -35,9 +84,33 @@ function App() {
               <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "60px"}}>$0.21</h6>
             </ul>
         </div>
+       
       </div>
+
+      
     </div>
     
+  );
+}
+
+function SignInScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Main" component={MainScreen} />
+        <Stack.Screen name="SignIn" component={SignInScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
