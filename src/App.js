@@ -5,27 +5,58 @@ import { ChartContainer } from '@mui/x-charts';
 import { LinePlot, LineChart, MarkPlot } from '@mui/x-charts/LineChart';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {createContext, useContext, useState} from 'react'
+import {createContext, useContext, useState, useEffect} from 'react'
 
 const UserContext = createContext(null);
+
 
 function MainScreen({ navigation }) {
   const { name } = useContext(UserContext);
   const { setName } = useContext(UserContext);
+
+  const [accountValue, setAccountValue] = useState(0);
+
+
+  setName("Aditya Behera");
+  var firstName = name.split(' ')[0];
+  var lastName = name.split(' ')[1];
+
+  useEffect(() => {
+    fetchAccountValue({firstName: firstName, lastName: lastName});
+  }, []);
+  
+  const fetchAccountValue = async (data = {}) => {
+      const response = await fetch('http://localhost:8080/account_value?firstName=Aditya&lastName=Behera', 
+      {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      //const data = JSON.parse(await response.json());
+      var value = await response.json();
+      console.log("Value: " + value)
+      //setAccountValue(value);
+  }
+
+  
+
   return (
     <div className="App">
       <html data-theme="nord"></html>
       <header className="App-header">
         <img src={logo} alt="logo" 
         style={{padding: '60px'}}/>
-        <button class="sign-out-button" onClick={() => {navigation.navigate('Sign In'); setName("")}}>Sign Out</button>
+        <button class="sign-out-button" onClick={() => {navigation.navigate('Sign In')}}>Sign Out</button>
       </header>
       <div class="flex flex-row">
         <div class="flex-none basis-2/3 pt-0">
            <div class="flex flex-row pt-3">
             <div class="flex-none basis-1/2">
               <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>{name} </h1>
-              <h6 style={{fontSize: "3rem", fontWeight: "400"}}>$8.20</h6>
+              <h6 style={{fontSize: "3rem", fontWeight: "400"}}>{accountValue}</h6>
             </div>
               
               
@@ -41,7 +72,7 @@ function MainScreen({ navigation }) {
       height={300}
       leftAxis={null}
       bottomAxis={null}
-      series={[{ type: 'line', curve: 'linear', data: [5, 7.10, 5.15, 7.92, 3.0, 8.08, 8.15, 6, 9, 10, 8.2] }]}
+      series={[{ type: 'line', curve: 'linear', data: [5, 7.10, 5.15, 7.92, 3.0, 8.08, 8.15, 6, 9, 10, 8., 12.923845798234659] }]}
       xAxis={[{ scaleType: 'point', data: [
         '3/1',
         '3/2',
@@ -53,7 +84,8 @@ function MainScreen({ navigation }) {
         '3,8',
         '3/9',
         '3/10',
-        '3/11'
+        '3/11',
+        '3/12'
       ] }]}
       sx={{
         '.MuiLineElement-root': {
@@ -80,10 +112,9 @@ function MainScreen({ navigation }) {
               <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px"}}>$5.00</h6>
 
               <h6 style={{fontSize: "0.8rem", fontWeight: "600", paddingTop: "40px"}}>Earnings</h6>
-              <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px"}}>$3.03</h6>
+              <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "60px"}}>$3.03</h6>
 
-              <h6 style={{fontSize: "0.8rem", fontWeight: "600", paddingTop: "40px"}}>Managing Fee</h6>
-              <h6 style={{fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "60px"}}>$0.21</h6>
+  
             </ul>
         </div>
        
@@ -145,7 +176,7 @@ function App() {
     
     <NavigationContainer>
       <UserContext.Provider value={{ name, setName }}>
-      <Stack.Navigator initialRouteName="Sign In">
+      <Stack.Navigator initialRouteName="Cloudman Capital">
         <Stack.Screen name="Cloudman Capital" component={MainScreen} />
         <Stack.Screen name="Sign In" component={SignInScreen} />
       </Stack.Navigator>
