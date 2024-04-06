@@ -5,24 +5,26 @@ import { ChartContainer } from '@mui/x-charts';
 import { LinePlot, LineChart, MarkPlot } from '@mui/x-charts/LineChart';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {createContext, useContext, useState} from 'react'
 
+const UserContext = createContext(null);
 
 function MainScreen({ navigation }) {
+  const { name } = useContext(UserContext);
+  const { setName } = useContext(UserContext);
   return (
     <div className="App">
-      <html data-theme="cupcake"></html>
+      <html data-theme="nord"></html>
       <header className="App-header">
         <img src={logo} alt="logo" 
         style={{padding: '60px'}}/>
-        <button class="sign-out-button" onClick={() => navigation.navigate('SignIn')}>Sign Out
-        
-        </button>
+        <button class="sign-out-button" onClick={() => {navigation.navigate('Sign In'); setName("")}}>Sign Out</button>
       </header>
       <div class="flex flex-row">
         <div class="flex-none basis-2/3 pt-0">
            <div class="flex flex-row pt-3">
             <div class="flex-none basis-1/2">
-              <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>Aditya Behera </h1>
+              <h1 style={{fontSize: "2rem", fontWeight: "bold"}}>{name} </h1>
               <h6 style={{fontSize: "3rem", fontWeight: "400"}}>$8.20</h6>
             </div>
               
@@ -94,23 +96,62 @@ function MainScreen({ navigation }) {
 }
 
 function SignInScreen({ navigation }) {
+  const {setName} = useContext(UserContext);
+  const handleSignIn = () => {
+    navigation.navigate('Cloudman Capital');
+  };
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
+    
+    <div className="App">
+      <html data-theme="nord"></html>
+      <header className="App-header">
+        <img src={logo} alt="logo" 
+        style={{padding: '60px'}}/>
+      </header>
+
+      <div class="flex flex-row pt-3">
+            <div class="flex-none basis-1/3">
+              
+            </div>
+            <div class="basis-1/3">
+            <h6 style={{fontSize: "1.8rem", fontWeight: "600", paddingTop: "40px", textAlign: "left"}}>SIGN IN</h6>
+            <label class="form-control w-full max-w-xs py-6">
+              <h6 style={{fontSize: "0.8rem", fontWeight: "400", padding: "7px", textAlign: "left", WebkitTextFillColor: "gray"}}>Name</h6>
+              <input type="text" placeholder="First & Last Name" class="input input-bordered w-full max-w-xs" onChange={(e) => setName(e.target.value)} />
+
+              <h6 style={{fontSize: "0.8rem", fontWeight: "400", padding: "7px", paddingTop: "20px", textAlign: "left", WebkitTextFillColor: "gray"}}>Password</h6>
+              <input type="password" placeholder="Password" class="input input-bordered w-full max-w-xs" />
+              <div class="label">
+              </div>
+            
+
+            </label>
+            <button class="btn rounded-full w-24 btn-secondary" onClick={handleSignIn}>Sign In</button>
+            
+            </div>
+            <div class="flex-none basis-1/3">
+              
+            </div>
+      </div>
+    </div>
   );
 }
 
 const Stack = createNativeStackNavigator();
 
 function App() {
+  const [name, setName] = useState(''); // Add state for name
   return (
+    
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Main" component={MainScreen} />
-        <Stack.Screen name="SignIn" component={SignInScreen} />
+      <UserContext.Provider value={{ name, setName }}>
+      <Stack.Navigator initialRouteName="Sign In">
+        <Stack.Screen name="Cloudman Capital" component={MainScreen} />
+        <Stack.Screen name="Sign In" component={SignInScreen} />
       </Stack.Navigator>
+      </UserContext.Provider>
     </NavigationContainer>
+   
   );
 }
 
