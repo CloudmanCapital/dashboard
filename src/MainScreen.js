@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { Header } from './Header';
 import { UserContext } from './App';
+import { ValueGraph } from './ValueGraph';
 import { ChartContainer } from '@mui/x-charts';
-import { LinePlot, LineChart, MarkPlot } from '@mui/x-charts/LineChart';
 import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory, fetchLastUpdated, fetchEarnings } from './api';
 
       export function MainScreen({ navigation }) {
@@ -35,12 +35,12 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
             if (nameArr.length >= 2) {
                 lastName = nameArr[1];
             }
-            fetchAccountValue({firstName: firstName, lastName: lastName}, setAccountValue);
+            /*fetchAccountValue({firstName: firstName, lastName: lastName}, setAccountValue);
             fetchDailyChange({firstName: firstName, lastName: lastName}, setDailyChange);
             fetchAmountInvested({firstName: firstName, lastName: lastName}, setAmountInvested);
             fetchHistory({firstName: firstName, lastName: lastName}, setAccountDates, setAccountValues);
             fetchLastUpdated({firstName: firstName, lastName: lastName}, setLastUpdated);
-            fetchEarnings({firstName: firstName, lastName: lastName}, setEarnings);
+            fetchEarnings({firstName: firstName, lastName: lastName}, setEarnings);*/
           }, [name]);
           
         
@@ -70,33 +70,14 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         </div>
                     </div>
 
-                    <div id="graph-holder" class="flex-none w-full h-full pl-0 basis-1/2">
-                        <LineChart
-                            id="graph"
-                            height={500}
-                            leftAxis={null}
-                            bottomAxis={null}
-                            series={[{type: 'line', curve: 'linear', data: accountValues }]}
-                            xAxis={[{
-                                scaleType: 'point', data: accountDates}]}
-                            sx={{
-                                '.MuiLineElement-root': {
-                                    stroke: '#35D2A2',
-                                    strokeWidth: 5,
-                                },
-                                '.MuiMarkElement-root': {
-                                    stroke: '#35D2A2',
-                                    scale: '0.5',
-                                    fill: '#35D2A2',
-                                    strokeWidth: 2,
-                                },
-                            }} />
+                    <div id="graph-holder" class="flex-none w-full h-full pl-0">
+                        <ValueGraph />
                     </div>
                 </div>
                 
 
-                <div id="mobile-stats" class="flex-col basis-1/3 self-center items-center justify-center ">
-                    <ul id="stats-box" class="menu rounded-box flex items-center justify-center">
+                <div id="mobile-stats" class="flex-col basis-1/3 self-center items-start justify-start ">
+                    <ul id="stats-box" class="menu rounded-box flex items-center">
                         <li>
                             <h6 style={{ fontSize: "1.5rem", fontWeight: "600", paddingTop: "25px" }}>Your Account</h6>
                             <h6 style={{ fontSize: "0.8rem", fontWeight: "600", paddingTop: "30px" }}>Amount Invested</h6>
@@ -110,7 +91,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                     </div>
                 </div>
                 
-                <div id="transactions" class="flex-none basis-1/2 mr-10 ml-10">
+                <div id="transactions" class="basis-1/3 mr-10 ml-10">
                     <table className="table">
                         <thead>
                             <tr>
@@ -151,30 +132,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         </div>
 
                         <div id="graph-holder" class="flex-none w-full h-full pl-0">
-                            <LineChart
-                                id="graph"
-                                height={300}
-                                leftAxis={null}
-                                bottomAxis={null}
-                                series={[{label: 'Current Value', type: 'line', curve: 'linear', data: accountValues },
-                            ]}
-                                xAxis={[{
-                                    scaleType: 'point', data: accountDates }]}
-                                tooltip={{
-                                    formatter: (value) => value.toFixed(2),
-                                  }}
-                                sx={{
-                                    '.MuiLineElement-root': {
-                                        stroke: '#35D2A2',
-                                        strokeWidth: 5,
-                                    },
-                                    '.MuiMarkElement-root': {
-                                        stroke: '#35D2A2',
-                                        scale: '0.5',
-                                        fill: '#35D2A2',
-                                        strokeWidth: 2,
-                                    },
-                                }} />
+                            <ValueGraph />
                         </div>
                     </div>
                     <div id="transactions" class="flex-none basis-1/2 mr-10 ml-10">

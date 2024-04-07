@@ -73,6 +73,7 @@
 }
 
 #transactions {
+  height: auto;
   overflow-y:auto;
   height: 300px;
 }
@@ -112,12 +113,14 @@
 
 #mobile-stats {
   align-self: center;
-  height: min-content;
   width: 80vw;
 }
 
 #stats-box {
+  margin-top: 0;
+  position:relative;
   width: auto;
+  height: min-content;
 }
 
 #last-updated {
