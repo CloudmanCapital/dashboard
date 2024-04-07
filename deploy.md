@@ -17,3 +17,6 @@ ssh vapor@164.90.149.18
 sudo docker run postgres
 cd CloudmanCapital
 swift run App serve --hostname 0.0.0.0 --port 8080
+Ctrl-z
+bg
+disown
