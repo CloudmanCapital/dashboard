@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.c958428d.css",
-    "main.js": "/static/js/main.1e013da6.js",
+    "main.js": "/static/js/main.7270906d.js",
     "static/js/453.942a809a.chunk.js": "/static/js/453.942a809a.chunk.js",
+    "static/media/Cloudman Capital Transparent Large.png": "/static/media/Cloudman Capital Transparent Large.2fa1b1fe7121e5c3948d.png",
     "index.html": "/index.html",
     "main.c958428d.css.map": "/static/css/main.c958428d.css.map",
-    "main.1e013da6.js.map": "/static/js/main.1e013da6.js.map",
+    "main.7270906d.js.map": "/static/js/main.7270906d.js.map",
     "453.942a809a.chunk.js.map": "/static/js/453.942a809a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c958428d.css",
-    "static/js/main.1e013da6.js"
+    "static/js/main.7270906d.js"
   ]
 }
