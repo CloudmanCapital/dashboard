@@ -21,7 +21,7 @@ function App() {
 
     <NavigationContainer>
       <UserContext.Provider value={{ name, setName }}>
-        <Stack.Navigator initialRouteName="Sign In">
+        <Stack.Navigator initialRouteName="Cloudman Capital">
           <Stack.Screen name="Cloudman Capital" component={MainScreen} />
           <Stack.Screen name="Sign In" component={SignInScreen} />
         </Stack.Navigator>
