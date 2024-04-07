@@ -60,7 +60,7 @@ export function SignInScreen({ navigation }) {
         console.log("User does not exist");
       }
       var passwordGood = false;
-      if (password === "123") {
+      if (password === "tybdE9") {
         passwordGood = true;
       }
         

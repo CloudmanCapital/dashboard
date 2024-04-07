@@ -1,5 +1,6 @@
+const url = "http://164.90.149.181:5432"
 export const fetchAccountValue = async (data = {}, setAccountValue) => {
-    const response = await fetch('http://localhost:8080/account_value', 
+    const response = await fetch(url+'/account_value', 
     {
       method: 'POST',
       headers: {
@@ -14,7 +15,7 @@ export const fetchAccountValue = async (data = {}, setAccountValue) => {
 }
 
 export const fetchDailyChange = async (data = {}, setDailyChange) => {
-  const response = await fetch('http://localhost:8080/daily_change', 
+  const response = await fetch(url+'/daily_change', 
   {
     method: 'POST',
     headers: {
@@ -27,7 +28,7 @@ export const fetchDailyChange = async (data = {}, setDailyChange) => {
 }
 
 export const fetchAmountInvested = async (data = {}, setAmountInvested) => {
-  const response = await fetch('http://localhost:8080/amount_invested', 
+  const response = await fetch(url+'/amount_invested', 
   {
     method: 'POST',
     headers: {
@@ -41,7 +42,7 @@ export const fetchAmountInvested = async (data = {}, setAmountInvested) => {
 }
 
 export const fetchEarnings = async (data = {}, setEarnings) => {
-  const response = await fetch('http://localhost:8080/earnings', 
+  const response = await fetch(url+'/earnings', 
   {
     method: 'POST',
     headers: {
@@ -55,7 +56,7 @@ export const fetchEarnings = async (data = {}, setEarnings) => {
 }
 
 export const fetchHistory = async (data = {}, setAccountDates, setAccountValues) => {
-  const response = await fetch('http://localhost:8080/account_history', 
+  const response = await fetch(url+'/account_history', 
   {
     method: 'POST',
     headers: {
@@ -70,7 +71,7 @@ export const fetchHistory = async (data = {}, setAccountDates, setAccountValues)
 }
 
 export const fetchLastUpdated = async (data = {}, setLastUpdated) => {
-  const response = await fetch('http://localhost:8080/last_update', 
+  const response = await fetch(url+'/last_update', 
   {
     method: 'POST',
     headers: {
@@ -84,7 +85,7 @@ export const fetchLastUpdated = async (data = {}, setLastUpdated) => {
 }
 
 export const checkUserExists = async (data = {}) => {
-  const response = await fetch('http://localhost:8080/user_exists', 
+  const response = await fetch(url+'/user_exists', 
   {
     method: 'POST',
     headers: {

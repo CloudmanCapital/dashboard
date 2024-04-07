@@ -35,12 +35,12 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
             if (nameArr.length >= 2) {
                 lastName = nameArr[1];
             }
-            /*fetchAccountValue({firstName: firstName, lastName: lastName}, setAccountValue);
+            fetchAccountValue({firstName: firstName, lastName: lastName}, setAccountValue);
             fetchDailyChange({firstName: firstName, lastName: lastName}, setDailyChange);
             fetchAmountInvested({firstName: firstName, lastName: lastName}, setAmountInvested);
             fetchHistory({firstName: firstName, lastName: lastName}, setAccountDates, setAccountValues);
             fetchLastUpdated({firstName: firstName, lastName: lastName}, setLastUpdated);
-            fetchEarnings({firstName: firstName, lastName: lastName}, setEarnings);*/
+            fetchEarnings({firstName: firstName, lastName: lastName}, setEarnings);
           }, [name]);
           
         
