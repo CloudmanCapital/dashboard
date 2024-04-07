@@ -52,7 +52,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
     return (isMobile()) ? (
         <div className="App">
             <html data-theme="nord"></html>
-            <Header navigation={navigation} useSignOut={true} setName={name} />
+            <Header navigation={navigation} useSignOut={true} setName={""} />
             <div id="overall-row" class="flex flex-col">
                 <div id="graph-top" class="flex-none self-stretch basis-1/3 pl-0">
                     <div class="flex flex-row pl-0">
