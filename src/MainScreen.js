@@ -21,7 +21,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
           const [accountValues, setAccountValues] = useState([]);
           const [lastUpdated, setLastUpdated] = useState(0);
           const [earnings, setEarnings] = useState(0);
-          setName("Aditya Behera")
+          //setName("Aditya Behera")
           
       
         
@@ -73,7 +73,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                     <div id="graph-holder" class="flex-none w-full h-full pl-0 basis-1/2">
                         <LineChart
                             id="graph"
-                            height={300}
+                            height={500}
                             leftAxis={null}
                             bottomAxis={null}
                             series={[{type: 'line', curve: 'linear', data: accountValues }]}
