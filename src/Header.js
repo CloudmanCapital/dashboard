@@ -6,7 +6,7 @@ export function Header({ navigation, useSignOut, setName }) {
       <header className="App-header">
         <img src={logo} alt="logo" style={{ padding: '20px' }} />
         {useSignOut && (
-          <button class="sign-out-button" onClick={() => { navigation.navigate('Sign In'); }}>
+          <button id="sign-out" class="sign-out-button" onClick={() => { navigation.navigate('Sign In')}}>
             Sign Out
           </button>
         )}
