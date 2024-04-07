@@ -65,7 +65,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
 
                         <div id="changeHolder" class="flex-none basis-1/2">
                             <div id="daily-change" class="rounded-rectangle ml-auto mr-10">
-                                +$3.08 (+48.2%) today
+                                {dailyChange}
                             </div>
                         </div>
                     </div>
@@ -76,22 +76,9 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                             height={300}
                             leftAxis={null}
                             bottomAxis={null}
-                            series={[{type: 'line', curve: 'linear', data: [5, 7.10, 5.15, 7.92, 3.0, 8.08, 8.15, 6, 9, 10, 8.2] }]}
+                            series={[{type: 'line', curve: 'linear', data: accountValues }]}
                             xAxis={[{
-                                scaleType: 'point', data: [
-                                    '3/1',
-                                    '3/2',
-                                    '3/3',
-                                    '3/4',
-                                    '3/5',
-                                    '3/6',
-                                    '3/7',
-                                    '3,8',
-                                    '3/9',
-                                    '3/10',
-                                    '3/11'
-                                ]
-                            }]}
+                                scaleType: 'point', data: accountDates}]}
                             sx={{
                                 '.MuiLineElement-root': {
                                     stroke: '#35D2A2',
@@ -113,13 +100,13 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         <li>
                             <h6 style={{ fontSize: "1.5rem", fontWeight: "600", paddingTop: "25px" }}>Your Account</h6>
                             <h6 style={{ fontSize: "0.8rem", fontWeight: "600", paddingTop: "30px" }}>Amount Invested</h6>
-                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px" }}>$5.00</h6>
+                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px" }}>{amountInvested}</h6>
                             <h6 style={{ fontSize: "0.8rem", fontWeight: "600", paddingTop: "40px" }}>Earnings</h6>
-                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "35px" }}>$3.03</h6>
+                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "35px" }}>{earnings}</h6>
                         </li>
                     </ul>
                     <div id="last-updated" class="toast">
-                        Last Updated 04/06/24
+                        {"Last Updated " + lastUpdated}
                     </div>
                 </div>
                 
@@ -151,14 +138,14 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         <div class="flex flex-row pl-0">
                             <div class="flex-volu basis-1/2 pl-0">
                                 <h1 className="ml-10" style={{ fontSize: "2rem", fontWeight: "bold" }}>{name} </h1>
-                                <h6 className="ml-10" style={{ fontSize: "3rem", fontWeight: "400" }}>$8.20</h6>
+                                <h6 className="ml-10" style={{ fontSize: "3rem", fontWeight: "400" }}>{accountValue.toFixed(2)}</h6>
 
                             </div>
 
 
                             <div id="changeHolder" class="flex-none basis-1/2">
                                 <div id="daily-change" class="rounded-rectangle ml-auto mr-10">
-                                    +$3.08 (+48.2%) today
+                                    {dailyChange}
                                 </div>
                             </div>
                         </div>
@@ -169,23 +156,10 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                                 height={300}
                                 leftAxis={null}
                                 bottomAxis={null}
-                                series={[{label: 'Current Value', type: 'line', curve: 'linear', data: [5, 7.10, 5.15, 7.92, 3.0, 8.08, 8.15, 6, 9, 10, 8.2] },
+                                series={[{label: 'Current Value', type: 'line', curve: 'linear', data: accountValues },
                             ]}
                                 xAxis={[{
-                                    scaleType: 'point', data: [
-                                        '3/1',
-                                        '3/2',
-                                        '3/3',
-                                        '3/4',
-                                        '3/5',
-                                        '3/6',
-                                        '3/7',
-                                        '3,8',
-                                        '3/9',
-                                        '3/10',
-                                        '3/11'
-                                    ]
-                                }]}
+                                    scaleType: 'point', data: accountDates }]}
                                 tooltip={{
                                     formatter: (value) => value.toFixed(2),
                                   }}
@@ -221,13 +195,13 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         <ul class="menu bg-base-200 w-56 rounded-box">
                             <h6 style={{ fontSize: "1.5rem", fontWeight: "600", paddingTop: "25px" }}>Your Account</h6>
                             <h6 style={{ fontSize: "0.8rem", fontWeight: "600", paddingTop: "30px" }}>Amount Invested</h6>
-                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px" }}>$5.00</h6>
+                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px" }}>{amountInvested}</h6>
                             <h6 style={{ fontSize: "0.8rem", fontWeight: "600", paddingTop: "40px" }}>Earnings</h6>
-                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "35px" }}>$3.03</h6>
+                            <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "35px" }}>{earnings}</h6>
                         </ul>
                     </div>
                     <div id="last-updated" class="toast">
-                        Last Updated 04/06/24
+                        {"Last Updated " + lastUpdated}
                     </div>
                 </div>
 
