@@ -1,4 +1,4 @@
-const url = "http://164.90.149.181:5432"
+const url = "http://164.90.149.181"
 export const fetchAccountValue = async (data = {}, setAccountValue) => {
     const response = await fetch(url+'/account_value', 
     {
