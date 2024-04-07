@@ -90,7 +90,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         {"Last Updated " + lastUpdated}
                     </div>
                 </div>
-                
+                {/*
                 <div id="transactions" class="basis-1/3 mr-10 ml-10">
                     <table className="table">
                         <thead>
@@ -102,6 +102,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         </thead>
                     </table>
                 </div>
+                */}
 
 
             </div>
@@ -135,6 +136,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                           <ValueGraph accountValues={accountValues} accountDates={accountDates}/>
                         </div>
                     </div>
+                    {/*
                     <div id="transactions" class="flex-none basis-1/2 mr-10 ml-10">
                         <table className="table">
                             <thead>
@@ -146,6 +148,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                             </thead>
                         </table>
                     </div>
+                      */}
                 </div>
 
                 <div id="right-col" class="flex-col basis-1/3">
