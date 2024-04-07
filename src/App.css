@@ -166,3 +166,9 @@
     height: 88vh;
 }
 
+.alert {
+  margin: 0 auto; /* Centers the element horizontally */
+  width: fit-content; /* Ensures width adapts to content */
+  /* Other styles for the alert */
+}
+

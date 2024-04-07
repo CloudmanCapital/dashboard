@@ -83,3 +83,17 @@ export const fetchLastUpdated = async (data = {}, setLastUpdated) => {
   setLastUpdated(response);
 }
 
+export const checkUserExists = async (data = {}) => {
+  const response = await fetch('http://localhost:8080/user_exists', 
+  {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  var value = await response.json();
+  console.log(value);
+  return value;
+}
