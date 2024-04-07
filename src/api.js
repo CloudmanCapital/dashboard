@@ -1,4 +1,7 @@
 const url = "http://164.90.149.181:8080"
+const HEADERS = {Accept: 'application/json',
+                'Content-Type':'application/json',
+                }
 export const fetchAccountValue = async (data = {}, setAccountValue) => {
     const response = await fetch(url+'/account_value', 
     {
@@ -88,10 +91,7 @@ export const checkUserExists = async (data = {}) => {
   const response = await fetch(url+'/user_exists', 
   {
     method: 'POST',
-    headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-    },
+    headers: HEADERS,
     body: JSON.stringify(data)
   })
   var value = await response.json();

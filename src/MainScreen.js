@@ -71,7 +71,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                     </div>
 
                     <div id="graph-holder" class="flex-none w-full h-full pl-0">
-                        <ValueGraph />
+                        <ValueGraph accountValues={accountValues} accountDates={accountDates}/>
                     </div>
                 </div>
                 
@@ -132,7 +132,7 @@ import { fetchAccountValue, fetchDailyChange, fetchAmountInvested, fetchHistory,
                         </div>
 
                         <div id="graph-holder" class="flex-none w-full h-full pl-0">
-                            <ValueGraph />
+                          <ValueGraph accountValues={accountValues} accountDates={accountDates}/>
                         </div>
                     </div>
                     <div id="transactions" class="flex-none basis-1/2 mr-10 ml-10">

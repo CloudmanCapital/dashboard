@@ -1,5 +1,6 @@
 import { LinePlot, LineChart, MarkPlot } from '@mui/x-charts/LineChart';
 export function ValueGraph({accountValues, accountDates}) {
+    
     //accountDates = [1,2,3,4,5,6,7,8];
     //accountValues = [1,2,3,4,5,6,7,8];
     return (<LineChart
