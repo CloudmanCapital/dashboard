@@ -3,7 +3,7 @@ import {Header} from './Header';
 import {UserContext} from './App';
 import { ChartContainer } from '@mui/x-charts';
 import { LinePlot, LineChart, MarkPlot } from '@mui/x-charts/LineChart';   
-import { fetchAccountValue, fetchAmountInvested, fetchDailyChange, fetchHistory, fetchLastUpdated } from './api';
+import { fetchAccountValue, fetchAmountInvested, fetchDailyChange, fetchEarnings, fetchHistory, fetchLastUpdated } from './api';
 export function MainScreen({ navigation }) {
     const {name, setName} = useContext(UserContext) || {};
     const [accountValue, setAccountValue] = useState(0);
@@ -12,6 +12,7 @@ export function MainScreen({ navigation }) {
     const [accountDates, setAccountDates] = useState([]);
     const [accountValues, setAccountValues] = useState([]);
     const [lastUpdated, setLastUpdated] = useState(0);
+    const [earnings, setEarnings] = useState(0);
     setName("Aditya Behera")
     
 
@@ -31,6 +32,7 @@ export function MainScreen({ navigation }) {
       fetchAmountInvested({firstName: firstName, lastName: lastName}, setAmountInvested);
       fetchHistory({firstName: firstName, lastName: lastName}, setAccountDates, setAccountValues);
       fetchLastUpdated({firstName: firstName, lastName: lastName}, setLastUpdated);
+      fetchEarnings({firstName: firstName, lastName: lastName}, setEarnings);
     }, [name]);
     
   
@@ -97,7 +99,7 @@ export function MainScreen({ navigation }) {
                 <h6 style={{ fontSize: "0.8rem", fontWeight: "600", paddingTop: "30px" }}>Amount Invested</h6>
                 <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px" }}>{amountInvested}</h6>
                 <h6 style={{ fontSize: "0.8rem", fontWeight: "600", paddingTop: "40px" }}>Earnings</h6>
-                <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "35px"}}>$3.03</h6>
+                <h6 style={{ fontSize: "2rem", fontWeight: "400", paddingTop: "5px", paddingBottom: "35px"}}>{earnings}</h6>
               </ul>
             </div>
             <div id="last-updated" class="toast">

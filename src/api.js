@@ -40,6 +40,20 @@ export const fetchAmountInvested = async (data = {}, setAmountInvested) => {
   setAmountInvested(response);
 }
 
+export const fetchEarnings = async (data = {}, setEarnings) => {
+  const response = await fetch('http://localhost:8080/earnings', 
+  {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then (response => response.text())
+  //console.log(response);
+  setEarnings(response);
+}
+
 export const fetchHistory = async (data = {}, setAccountDates, setAccountValues) => {
   const response = await fetch('http://localhost:8080/account_history', 
   {
@@ -68,3 +82,4 @@ export const fetchLastUpdated = async (data = {}, setLastUpdated) => {
   //console.log(response.times);
   setLastUpdated(response);
 }
+
